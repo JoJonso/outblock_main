@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/JoJonso/outblock_main/issues"
   },
-  "homepage": "https://github.com/JoJonso/outblock_main#readme"
+  "homepage": "https://github.com/JoJonso/outblock_main#readme",
+  "dependencies": {
+    "@prisma/client": "^7.8.0",
+    "express": "^5.2.1",
+    "prisma": "^7.8.0"
+  }
 }
