@@ -2,6 +2,7 @@
   "name": "outblock_main",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,6 +19,7 @@
   },
   "homepage": "https://github.com/JoJonso/outblock_main#readme",
   "dependencies": {
+    "@prisma/adapter-mariadb": "^7.8.0",
     "@prisma/client": "^7.8.0",
     "express": "^5.2.1",
     "prisma": "^7.8.0"
