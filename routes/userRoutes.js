@@ -1,13 +1,15 @@
 import express from 'express';
-import { registerUser } from '../controllers/userController.js';
+import controller from '../controllers/userController.js';
 
 //  Inicializando rotas do usuário
 const routes = express.Router();
 
+const userController = controller();
 //  Rotas
 
 //  Cadastrar usuário
-routes.post('/registerUser',registerUser);
+routes.post('/registerUser',userController.registerUser);
+routes.post('/loginUser',userController.logUser);
 
 //  Logar usuário
 
