@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import "./Login.css"
-import { User, Shield } from "lucide-react";
+import { AtSign, Lock } from "lucide-react";
 import { Link, useNavigate } from "react-router";
 import api from '../../../services/api.js';
 
@@ -26,38 +26,42 @@ const Login = () => {
     }
 
     return (
-    <main className="container">
-      <section className="login">
-        <form onSubmit={logUser}>
-          <h1>Faça seu login</h1>
+    <>
+      <main className='mainLogin'>
+        <section className="art"></section>
 
-          <div className="input-field">
-            <input type="text" id="user" name="user" value={username} onChange={(e) => {setUsername(e.target.value)}} placeholder="Seu nome de usuário ou e-mail"/>
-            <User className='icon'/>
-          </div>
+        <section className="login">
+          <form onSubmit={logUser}>
+            <h1>Faça seu login</h1>
 
-          <div className="input-field">
-            <input type="password" id="password" name="password" value={password} onChange={(e) => {setPassword(e.target.value)}} placeholder="Sua senha"/>
-            <Shield className='icon'/>
-          </div>
+            <div className="input-field">
+              <input type="text" id="user" name="user" value={username} onChange={(e) => {setUsername(e.target.value)}} placeholder="Nome de usuário ou e-mail"/>
+              <AtSign className='icon'/>
+            </div>
 
-          <div className="remember-me">
-            <label><input type="checkbox" id="remember-me" name="remember-me"/>Lembrar de mim</label>
+            <div className="input-field">
+              <input type="password" id="password" name="password" value={password} onChange={(e) => {setPassword(e.target.value)}} placeholder="Senha"/>
+              <Lock className='icon'/>
+            </div>
 
-            <a href="#">Esqueceu a senha?</a>
-          </div>
+            <div className="remember-me">
+              <label><input type="checkbox" id="remember-me" name="remember-me"/>Lembrar de mim</label>
 
-          <div className="enter">
-            <button type="submit">Entrar</button>
-          </div>
-          
+              <a href="#">Esqueceu a senha?</a>
+            </div>
 
-          <div className="signup">
-            <p>Ainda não tem uma conta? <Link to="/register">Crie uma!</Link></p>
-          </div>
-        </form>  
-      </section>
-    </main>
+            <div className="enter">
+              <button type="submit">Entrar</button>
+            </div>
+            
+
+            <div className="signup">
+              <p>Ainda não tem uma conta? <Link to="/register">Crie uma!</Link></p>
+            </div>
+          </form>  
+        </section>
+      </main>
+    </>
     )
 }
 

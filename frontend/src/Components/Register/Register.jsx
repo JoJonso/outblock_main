@@ -1,5 +1,5 @@
 import "./Register.css"
-import { User, Shield, Mail, CalendarDays } from "lucide-react";
+import { AtSign, Lock, Mail, CalendarDays } from "lucide-react";
 import { Link } from "react-router";
 
 //  Integração com o servidor por meio da api
@@ -31,18 +31,16 @@ const Register = () => {
         }
     }
     return (
-    <main className="container">
-      <section className="login">
+    <main className='mainRegister'>
+      <section className="art"></section>
+
+      <section className="register">
         <form onSubmit={registerUser}>
           <h1>Crie uma conta</h1>
 
-          <div className="signup">
-            <p>Já tem uma conta? <Link to="/login">Entre!</Link></p>
-          </div>
-
           <div className="input-field">
             <input type="text" id="user" name="user" placeholder="Seu nome de usuário *" value={username} required onChange={(e) => {setUsername(e.target.value)}}/>
-            <User className='icon'/>
+            <AtSign className='icon'/>
           </div>
 
           <div className="input-field">
@@ -52,11 +50,11 @@ const Register = () => {
 
           <div className="input-field">
             <input type="password" id="password" name="password" placeholder="Sua senha *"  value={password} required onChange={(e) => {setPassword(e.target.value)}}/>
-            <Shield className='icon'/>
+            <Lock className='icon'/>
           </div>
 
           <div className="input-field">
-            <input type="date" id='birthdate' name='birthdate' value={birthDate} required onChange={(e) => {setBirthDate(e.target.value)}}/>
+            <input type="date" id='birthdate' name='birthdate' placeholder='cu' value={birthDate} required onChange={(e) => {setBirthDate(e.target.value)}}/>
             <CalendarDays className="icon"/>
           </div>
 
@@ -66,6 +64,10 @@ const Register = () => {
 
           <div className="enter">
             <button type="submit">Registre-se</button>
+          </div>
+
+          <div className="signup">
+            <p>Já tem uma conta? <Link to="/login">Entre!</Link></p>
           </div>
         </form>  
       </section>
