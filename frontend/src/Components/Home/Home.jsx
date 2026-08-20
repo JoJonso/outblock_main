@@ -10,7 +10,7 @@ const Home = () => {
     const navigate = useNavigate();
 
     // Vithor --> GUARDAR INFORMAÇÕES NO USESTATE E COLOCAR NO FEED!!!
-    const [userInfo,setUserInfo] = useState([]); 
+    const [userInfo,setUserInfo] = useState({}); 
 
     const authToken = async () => {
         // Pegando token salvo no localstorage
@@ -47,6 +47,7 @@ const Home = () => {
                 }
             });
 
+            setUserInfo(user.data);
             console.log(user.data);
         }catch(error) {
             console.log(error.message);
@@ -56,7 +57,6 @@ const Home = () => {
     useEffect(() => {
         //  Fazer requisição com api para ver se o token é valido
         authToken();
-
         //  Pegar informações do user baseado no payload do JWT
         getUser();
     },[])
@@ -83,7 +83,9 @@ const Home = () => {
                     <section id="profile">
                         <img src={user} alt="Foto de Usuário Padrão"/>
 
-                        <h2>@usuario</h2>
+                        <div key={userInfo.userId}>
+                            <h2>@{userInfo.username}</h2>
+                        </div>
                         
                         <div id='user-stats'>
                             <p>0 seguindo</p>
