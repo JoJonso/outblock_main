@@ -1,6 +1,7 @@
 import 'dotenv/config'
 import express from 'express';
 import userRoutes from './routes/userRoutes.js';
+import articleRoutes from './routes/articleRoutes.js';
 import cors from 'cors';
 
 
@@ -13,6 +14,7 @@ app.use(cors());
 app.use(express.json());
 
 // Importar rotas
+app.use(articleRoutes);
 app.use(userRoutes);
 
 //Porta do servidor

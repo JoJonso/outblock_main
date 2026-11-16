@@ -12,12 +12,25 @@ datasource db {
 }
 
 model User {
-  id Int @id @default(autoincrement())
-  username String @unique
-  email String @unique
-  password String 
-  birthDate DateTime @db.Date 
+  id        Int      @id @default(autoincrement())
+  username  String   @unique
+  email     String   @unique
+  password  String
+  birthDate DateTime @db.Date
 
   //  @db.Date ---> Attributo que define a data na formatação(YYYY-MM-DD).
   //  @unique ---> Define um dos attributos como unico dentro do model.
+
+  articles Articles[]
+}
+
+model Articles {
+  id          Int      @id @default(autoincrement())
+  title       String
+  tags        String
+  content     String
+  publishDate DateTime @db.Date
+
+  user   User @relation(fields: [userId], references: [id])
+  userId Int
 }

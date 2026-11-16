@@ -9,7 +9,7 @@ import { Search, MessageCircleMore, Bell, Bookmark, Settings, FileImage, FilePla
 const Home = () => {
     const navigate = useNavigate();
 
-    // Vithor --> GUARDAR INFORMAÇÕES NO USESTATE E COLOCAR NO FEED!!!
+    // GUARDAR INFORMAÇÕES NO USESTATE E COLOCAR NO FEED!!!
     const [userInfo,setUserInfo] = useState({}); 
 
     const authToken = async () => {
@@ -93,7 +93,7 @@ const Home = () => {
                         </div>
                         
                         <div id='user-actions'>
-                            <button type="submit">Ver perfil</button>
+                            <button type="button">Ver perfil</button>
                             <div id='edit'><SquarePen className='icon'/></div>
                         </div>
                         
@@ -131,10 +131,20 @@ const Home = () => {
                 <section id="right">
                     <section id="events">
                         <h2>Eventos</h2>
+                        <div className="events-container">
+
+                        </div>
+
+                        <button type="button" onClick={() => {navigate('/events')}}>Ver eventos</button>
                     </section>
 
                     <section id="articles">
                         <h2>Artigos</h2>
+                        <div className="articles-container">
+                           
+                        </div>
+
+                        <button type="button" onClick={() => {navigate('/articles')}}>Ver artigos</button>
                     </section>
                 </section>
             </main>
